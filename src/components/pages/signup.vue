@@ -18,7 +18,7 @@
           <tr>
           <td> <label> <strong>Password</strong> </label></td>
           <td> <label><strong>:</strong></label></td>
-          <td><input type="password" placeholder="Enter Password" class="input" v-model="password"/> </td>
+          <td><input type="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="enter atleat 1 digit amd 1 lower character and 1 upper character and l special character and be atleast 8 characters " class="input" v-model="password"/> </td>
           </tr> 
            
            

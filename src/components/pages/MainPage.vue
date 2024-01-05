@@ -7,10 +7,13 @@
                 <router-link class="nav-bar" to="/" @click.prevent=" Signout()">Signout</router-link>
              </ul>
        </div>
-      <button @click.prevent=" posts()"> <img src="@/assets/plusAdd.png" id="img"/></button>
+     
     <div>
+         
         <table>
+            <button @click.prevent=" posts()"> <img src="@/assets/plusAdd.png" id="img"/></button> 
             <tbody>
+                
                 <tr v-for="post in  gettingDetails" :key="post.Id">
                     <td ><img :src="post.image" alt="dp"></td>
                     <td id="td">{{post.firstname}} {{post.lastname}}
@@ -121,7 +124,7 @@ button{
     width: 20px;
     height: 20px;
     position:absolute;
-    right: 250px;
+    left: 190px;
     background: none;
     border: none;
 }
@@ -129,6 +132,6 @@ button{
     width: 20px;
     height: 20px;
     position: relative;
-    right:210px;
+    left:190px;
 }
  </style>

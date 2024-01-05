@@ -1,7 +1,7 @@
 <template>
     <div >
-        <div class="container">
-            <button @click.prevent="gotoLogin()" id="btn">Back</button>
+        <div class="container" v-if="!isVerify">
+            <button @click.prevent="gotoLogin()" class="btn" >Back</button>
             <form @submit.prevent="reset">
                 <label>Email</label>
                 <input type="email" placeholder="enter email" v-model="email" required/>
@@ -10,6 +10,15 @@
 
             </form>
         </div>
+       <div class="container1" v-else>
+        <h3>Reset Password</h3>
+           <img src="@/assets/success icon.png" alt="image" />
+           <p style="color:black;font-size:14px;">Password Reset Link has been Sent <br/><span style="margin-left:30px;">Please check your email</span></p>
+          
+          <button @click.prevent="gotoLogin()" id="btn">Back</button>
+         
+
+       </div>
     </div>
 </template>
 <script>
@@ -23,6 +32,7 @@ export default{
             link:'',
             error:'',
            isVerified:false,
+           isVerify:false,
             weburl:process.env.VUE_APP_WEB_URL
         }
     },
@@ -41,7 +51,8 @@ export default{
         },
         checkEmail(data){
             const exist=data.find(e=>this.email===e.email)
-            if(exist){
+            if(exist){ 
+                this.isVerify=true
                 this.isVerified=false
                 this.$store.commit('change',true)
                 this.code=Math.random().toString(26).slice(2,10)
@@ -116,10 +127,33 @@ input{
         font-weight: bolder;
     }
     #btn{
-    
-        margin-left: 0px;
-       
-        
-       
-    }
+        /* position: relative;
+        left: 15%; */
+        background-color: blue;
+        width: 200px;
+        color:whitesmoke;
+     }
+     .btn{
+        background-color: whitesmoke;
+        color: black;
+     }
+     img{
+        width: 60px;
+        height: 60px;
+        /* position: relative;
+        left: 40%; */
+     }
+     .container1{
+    border: 2px solid black;
+    width:300px;
+    position: absolute;
+    left: 35%;
+    top: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius:20px ;
+}
+
 </style>
