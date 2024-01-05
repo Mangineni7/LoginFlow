@@ -24,7 +24,7 @@
           
      </div>
      <p v-if="error" style="color:red;">{{loginError}}</p>
-     <a @click.prevent="changes()">forget password?</a>
+     <a @click.prevent="changes()">Forgot Password?</a>
         </div>
      
         
